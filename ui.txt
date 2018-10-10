@@ -1,0 +1,196 @@
+<!-- Main UI used across welcome, map, and info screen states -->
+<style>
+	#mainTextContent {
+		position: fixed;
+		top: 30%;
+		width: 35%;
+		background: transparent;
+	}
+
+	.textContent div {
+		padding: 0.5em 0;
+	}
+
+	#title div {
+		margin: 0 0 0.2em 0;
+	}
+	
+	.textContent #title .title_small {
+		padding: 0;
+		margin: 0;
+	}
+
+	#info {
+		position: fixed;
+		top: 20%;
+	}
+
+	#info button  {
+		min-width: 0px;
+	}
+
+	#hostSpeech {
+		font-size: 1.25em;
+		background: transparent;
+	}
+
+	.hint {
+		font-size: 1em;
+		opacity: 0.7;
+	}
+
+	#micButton {
+		width: 36px;
+		height: 36px;
+		position: fixed;
+		top: 85%;
+	}
+
+	#recordMic {
+		padding: auto;
+		margin: auto;
+		text-align: center;
+		display: inline-block;
+		height: 100%;
+		vertical-align: middle;
+		position: relative;
+		width: 100%;
+	}
+
+	#recordMic img {
+		width: 20px;
+		height:20px;
+		margin-top: 20%;
+	}
+
+	#micButton #recordMic img:hover {
+		filter: invert(100%);
+	}
+
+	.ring {
+		z-index: -1;
+		position: absolute;
+		top: 50%;
+		transform: scale(.25);
+		animation-iteration-count: infinite;
+	}
+
+	.ping1 {
+		top: -30px;
+		left: -30px;
+		border: solid #0070BA 48px;
+		border-radius: 50%;
+		content: "";
+		animation-duration: 3s;
+		animation-name: ping1;
+	}
+
+	.ping2 {
+		top: -30px;
+		left: -30px;
+		border: solid #0070BA 48px;
+		border-radius: 50%;
+		content: "";
+		animation-duration: 3s;
+		animation-name: ping2;
+	}
+
+	.ping3 {
+		top: -30px;
+		left: -30px;
+		border: solid #0070BA 48px;
+		border-radius: 50%;
+		content: "";
+		animation-duration: 3s;
+		animation-name: ping3;
+	}
+
+	@keyframes ping1 {
+		0% {
+			transform: scale(.25);
+			opacity: 1;
+		}
+		100% {
+			transform: scale(3);
+			opacity: 0;
+		}
+	}
+
+	@keyframes ping2 {
+		0% {
+			transform: scale(0.25);
+			opacity: 1;
+		}
+		33% {
+			transform: scale(0.25);
+			opacity: 1;
+		}
+		100% {
+				transform: scale(2);
+				opacity: 0;
+			}
+	}
+
+	@keyframes ping3 {
+		0% {
+			transform: scale(0.25);
+			opacity: 1;
+		}
+		66% {
+			transform: scale(0.25);
+			opacity: 1;
+		}
+		100% {
+			transform: scale(1);
+			opacity: 0;
+		}
+	}
+</style>
+
+<div class="UI">
+	<div id="info">
+		<button id="infoButton" class="hint show">info</button>
+	</div>
+
+	<div id="mainTextContent">
+		<div class="textContent">
+			<div id="title" class="show">
+				<div class="title_small">Welcome to</div>
+				<div class="title_large">Sumerian Concierge Experience</div>
+			</div>
+
+			<div id="hostSpeech" class="hide">Sure, you can click on the desks to see my teammates' information.</div>
+			<div id="genericQuestionTitle" class="hide">Sure, you can click on the desks to see my teammates' information.</div>
+
+			<div class="hint italic">
+				<div id="introHintSection" class="show">
+					<div>Hold down the mic button below and say, "Hi Cristine".</div>
+					<button id="startButton" class="show">Start</button>
+				</div>
+				<div id="infoHint" class="hide">
+					<div id="infoContent" class="hide">If the experience does not start, please make sure the webcam and microphone are being used by this browser tab. You can check your webcam feed by toggling the Tab key. Facial detection is working properly if there is a red box around your face in the webcam feed.
+					</div>
+					<button id="closeInfoButton" class="hide">Close Info</button>
+				</div>
+				<div id="mapHintSection">
+					<button id="mapButton" class="hide">Show floor plan</button>
+				</div>
+				<div id="scheduleHintSection">
+					<button id="scheduleButton" class="hide">Show event schedule</button>
+				</div>
+				<div id="genericQuestionSection">
+					<div id="genericQuestionPayload" class="hide">Hold down the mic button and say, "Show me floor plan".</div>
+					<button id="genericQuestionButton" class="hide">Show services used</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="micButton" class="iconButton">
+		<div id="recordMic" class="iconBlack show">
+			<div id="ring1"></div>
+			<div id="ring2"></div>
+			<div id="ring3"></div>
+		</div>
+	</div>
+</div>
