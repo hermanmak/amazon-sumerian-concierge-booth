@@ -13,4 +13,41 @@ This is a sample concierge demo which builds off of the stock concierge demo pro
 2. Create a new DynamoDB table and store csv data in there.
 3. Update LEX bot with updated utterances provided in this repo.
 
-
+### AWS IoT Setup
+1. The Deeplens and the Sumerian are configured by default to listen/publish over the AAHKDemoIOTTopic
+2. There is a simple API defined which you can modify and add to. 
+#### Sample APIs:
+```
+{
+    "eventType": "Recommendation",
+    "payloadVersion": "1",
+    "payload": {
+        "gender": "F",
+        "age": 24,
+        "hasGlasses": false
+    }
+}
+```
+```
+{
+    "eventType": "BarcodeRead",
+    "payloadVersion": "1",
+    "payload": {
+        "BarcodeId": "AAHKDemo1"
+    }
+}
+```
+```
+{
+    "eventType": "Person",
+    "payloadVersion": "1",
+    "payload": {
+    }
+}
+```
+```
+{
+  "eventType": "EndofSpeak",
+  "payloadVersion": "1"
+}
+```
